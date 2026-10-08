@@ -44,8 +44,9 @@ for i, p in enumerate(prompts):
         fail(f"{where}: the prompt text belongs in prompts/{p['id']}.txt, not in the JSON")
     if p.get("fileSelection", "none") not in FILE_SELECTIONS:
         fail(f"{where}: fileSelection must be one of {', '.join(FILE_SELECTIONS)}")
-    if "includePublications" in p and not isinstance(p["includePublications"], bool):
-        fail(f"{where}: includePublications must be true or false")
+    for option in ("includePublications", "includePeople", "includeChecklist", "includeRedmineTicket"):
+        if option in p and not isinstance(p[option], bool):
+            fail(f"{where}: {option} must be true or false")
     text_file = PROMPTS / f"{p['id']}.txt"
     if not text_file.is_file():
         fail(f"{where}: {text_file} is missing")

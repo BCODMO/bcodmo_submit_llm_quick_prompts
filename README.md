@@ -39,6 +39,9 @@ push, so look at the Actions tab if a refresh reports a problem.
       "label": "Extract Timezone",
       "icon": "calendar",
       "includePublications": false,
+      "includePeople": false,
+      "includeChecklist": false,
+      "includeRedmineTicket": false,
       "fileSelection": "none"
     }
   ]
@@ -53,6 +56,9 @@ Prompts appear in the order they are listed.
 | `label`               | yes      | Text shown on the button.                                                                                                                                                                                                     |
 | `icon`                | no       | Icon next to the label, one of the names listed below. Leave it out for no icon. An unknown name also shows no icon.                                                                                                           |
 | `includePublications` | no       | `true` or `false` ticks or unticks the "Include publications" option when the prompt is chosen. Leave it out to keep whatever the user had set.                                                                                   |
+| `includePeople`       | no       | Same for "Include people".                                                                                                                                                                                                    |
+| `includeChecklist`    | no       | Same for "Include checklist".                                                                                                                                                                                                 |
+| `includeRedmineTicket`| no       | Same for "Include Redmine ticket".                                                                                                                                                                                            |
 | `fileSelection`       | no       | What happens to the "Files" selection when the prompt is chosen: `none` clears it (default), `parameterFiles` selects every data file that has parameters defined, `keep` leaves it alone.                                        |
 
 ## Icons
