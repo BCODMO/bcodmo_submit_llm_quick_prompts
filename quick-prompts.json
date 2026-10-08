@@ -5,12 +5,18 @@
       "label": "Extract citations from metadata",
       "icon": "book",
       "includePublications": false,
+      "includePeople": false,
+      "includeChecklist": false,
+      "includeRedmineTicket": false,
       "fileSelection": "none"
     },
     {
       "id": "check_parameters",
       "label": "Verify parameters",
       "icon": "book",
+      "includePeople": false,
+      "includeChecklist": false,
+      "includeRedmineTicket": false,
       "fileSelection": "parameterFiles"
     },
     {
@@ -18,6 +24,9 @@
       "label": "Extract missing citations",
       "icon": "book",
       "includePublications": true,
+      "includePeople": false,
+      "includeChecklist": false,
+      "includeRedmineTicket": false,
       "fileSelection": "none"
     },
     {
@@ -25,6 +34,9 @@
       "label": "Extract Timezone",
       "icon": "calendar",
       "includePublications": false,
+      "includePeople": false,
+      "includeChecklist": false,
+      "includeRedmineTicket": false,
       "fileSelection": "none"
     },
     {
@@ -32,6 +44,9 @@
       "label": "Extract Instruments",
       "icon": "cogs",
       "includePublications": false,
+      "includePeople": false,
+      "includeChecklist": false,
+      "includeRedmineTicket": false,
       "fileSelection": "none"
     },
     {
@@ -39,6 +54,9 @@
       "label": "Extract Taxonomic Names",
       "icon": "list",
       "includePublications": false,
+      "includePeople": false,
+      "includeChecklist": false,
+      "includeRedmineTicket": false,
       "fileSelection": "none"
     },
     {
@@ -46,6 +64,19 @@
       "label": "Extract Names",
       "icon": "user",
       "includePublications": false,
+      "includePeople": false,
+      "includeChecklist": false,
+      "includeRedmineTicket": false,
+      "fileSelection": "none"
+    },
+    {
+      "id": "test",
+      "label": "Test new prompt",
+      "icon": "wand-magic-sparkles",
+      "includePublications": false,
+      "includePeople": false,
+      "includeChecklist": false,
+      "includeRedmineTicket": false,
       "fileSelection": "none"
     }
   ]
