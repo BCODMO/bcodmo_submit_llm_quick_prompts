@@ -3,7 +3,9 @@
 `quick-prompts.json` holds the **Quick Prompts** shown on the LLM page of a
 dataset submission in the submission tool. The submission API reads this file
 from the `main` branch of this repository, so editing it here changes the
-prompts data managers see, without a code deployment.
+prompts data managers see, without a code deployment. The repository is public on purpose: the API
+reads it with no credential, so there is no token that can expire. Don't put
+anything in here that shouldn't be public.
 
 ## Making a change
 
