@@ -1,0 +1,142 @@
+{
+  "quickPrompts": [
+    {
+      "id": "extract_publications",
+      "label": "Extract citations from metadata",
+      "icon": "book",
+      "includePublications": false,
+      "fileSelection": "none",
+      "prompt": [
+        "Please extract a table containing all of the publications mentioned in the metadata. The first column should be the citation, the second column should be a description of where in the metadata the citation occurred, and the third column should be a link to the DOI. Look up the DOIs online for the references even if the DOI is not in the text. If you cannot easily find the DOI online or are not 100% sure about the DOI, clearly state it or leave the cell empty.",
+        "",
+        "Include any in-text citations that are missing information about what publication it is referencing. This is often the case with (Table #) or figure references or numeric references [#] for which do not make sense in the context of the submission and are likely a holdover from how they were referenced in a publication the methods were taken from."
+      ]
+    },
+    {
+      "id": "check_parameters",
+      "label": "Verify parameters",
+      "icon": "book",
+      "fileSelection": "parameterFiles",
+      "prompt": [
+        "Please confirm that the parameters in the metadata (file column definitions) match the header lines and the content of the file samples passed in. Only confirm parameters where the respective file is passed in. The header line might not necessarily be the first line. Confirm both the correctness of column names as well as if the description and units make sense given the actual data content. Format your answer as a table for each relevant file, with a short summary above each table.",
+        "",
+        "Add to this table another column for suggested parameter names that conform to the following rules: 1) cannot start with a number 2) only letters, numbers and underscores can be used and no extended ASCII characters 3) they should be accurate and descriptive, but also concise. Do not suggest new names for compliant column names. We also do not include units in the parameter names, except to differentiate one parameter from another. They are listed separately"
+      ]
+    },
+    {
+      "id": "extract_missing_publications",
+      "label": "Extract missing citations",
+      "icon": "book",
+      "includePublications": true,
+      "fileSelection": "none",
+      "prompt": [
+        "Create a table containing all of the publications and in-text citations in the metadata.  I need to figure out if we have all the full references for all the in-text citations use in the metadata. I also need to know if there were references without in-text citations.",
+        "",
+        "Include: ",
+        "",
+        "    a column \"Citation\" should be the in-text citation for the publication.  Do not include  publications in the related_publications section. If there was no in-text citation used, put \"none\"",
+        "",
+        "    a column, \"Citation location\"  should indicate what section of the metadata the citation.  If you can't tell put \"unclear.\"    Do not include  publications in the related_publications  section.",
+        "",
+        "    a column \"Citation purpose\" should be a brief description of what citation is being used for. If you can't tell put \"unclear\"",
+        "",
+        "    a column \"Reference Provided\" should be \"Yes\" if the full reference for the publication was included in the metadata in the \"related_publications\" section.  Put \"No\" if it was not. If you are not sure put \"unclear\"",
+        "",
+        "    a column should include the identifier for the publication (ISBN, DOI, permalink, etc) if it was provided in the related_publications section. If none was provided, do a web search to find the identifier for the publication.  DOI is the preferred identifier if possible.  If none could be found put \"could not find\"",
+        "",
+        "",
+        "Include a row in this table for every publication (full join of in text citations and full publication reference text).",
+        "",
+        "After that table, list a summary of just the in-text citations that are missing full references.",
+        "",
+        "List the references that didn't have DOIs or permalinks.",
+        "",
+        "List the references that were not cited anywhere else.",
+        "",
+        "Include any in-text citations that are missing information about what publication it is referencing. This is often the case with (Table #) or figure references or numeric references [#] for which do not make sense in the context of the submission and are likely a holdover from how they were referenced in a publication the methods were taken from."
+      ]
+    },
+    {
+      "id": "extract_timezone",
+      "label": "Extract Timezone",
+      "icon": "calendar",
+      "includePublications": false,
+      "fileSelection": "none",
+      "prompt": [
+        "Is the time zone documented in a metadata field? If so, list the field name and the time zone mentioned.",
+        "List any data parameter names (documentation of data column names) that are times, or timestamps.  Indicate if the time zone is documented somewhere.  If so, where is it documented?  It's easier for data managers to understand if you report \"parameter_names\" json field as \"Parameter Information\" if that is where it is mentioned.",
+        "Don't consider the `temporal bounds` key or any strings descending from it. Only evaluate the other metadata."
+      ]
+    },
+    {
+      "id": "extract_instruments",
+      "label": "Extract Instruments",
+      "icon": "cogs",
+      "includePublications": false,
+      "fileSelection": "none",
+      "prompt": [
+        "Find everything in the submission that is an instrument . Make a table that includes columns:",
+        "",
+        "\"Instrument Type\" - give the general category of instrument this is",
+        "\"Instrument name\" - exact text of how the instrument name (and if provided, the model and vendor) as it was provided in the metadata. Don't make this up. If you don't know, put \"not sure\"",
+        "\"BCO-DMO master instrument\" - your best guess of which master instrument from the BCO-DMO master instrument list most closely resembles this instrument. Include the name of the master instrument as well a markdown formatted link to the instrument which can be found at https://www.bco-dmo.org/instrument/ID, where ID is the ID of the master instrument. ",
+        "\"Where described\" - the field name where it was described",
+        "\"Usage Description\" - include the exact text of how it's usage was described if short with a prefix \"Exact:\". Else prefix as \"LLM Summary: \" and provide a brief summary of how it was described.",
+        "",
+        "The BCO-DMO master instrument list can be found at https://website-api-prod.bco-dmo.org/v1/search?object=instrument&pageSize=5000. Do not cite this API when returning results."
+      ]
+    },
+    {
+      "id": "extract_taxonomic_names",
+      "label": "Extract Taxonomic Names",
+      "icon": "list",
+      "includePublications": false,
+      "fileSelection": "none",
+      "prompt": [
+        "Create a table for taxonomic names included in the metadata. Provide the LSID for the names used by looking it up at World Register of Marine Species WoRMS - World Register of Marine Species  . Also include the exact match type if possible:",
+        "",
+        "There are several types of match quality used at WoRMS:",
+        "exact all characters match exactly",
+        "exact_subgenus an exact match, but including the subgenus",
+        "exact_replaced an exact match on a deleted or quarantined name, but returning it's replacement AphiaID & name",
+        "phonetic sounds similar as, despite minor differences in spelling (soundex algorithm)",
+        "near_1 perfect match, except for one character. This is a quite reliable match",
+        "near_2 good match, except for two characters. This needs an extra check",
+        "near_3 good match, except for three characters. This definitely needs an extra check",
+        "match_quarantine match with a name that is currently in quarantine. Any name that has been used in the literature should in principle not be quarantined. So best to contact the WoRMS DMT about this",
+        "match_deleted this is a match with a name that has been deleted and no alternative is available. Please contact the WoRMS DMT when you come across this.",
+        "Indicate whether the name is the accepted name or not. If not, supply the accepted name and lsid for what is listed at WoRMS WoRMS - World Register of Marine Species  .",
+        "",
+        "Include the column \"SciName_in_metadata\" and add the matched \"SciName_WoRMS\"",
+        "",
+        "Include name status as indicated by WoRMS such as \"accepted\" \"unnacepted\" \"superseded combination\" etc.",
+        "Include the LSID corresponding to SciName_WoRMS",
+        "Include the Match Type",
+        "",
+        "Bold any that are not exact and accepted.",
+        "",
+        "Don't include possible explanations for mismatch or no matches, I'll ask about that later.",
+        "This is how data managers typically explain the importance of matching to known names at WoRMS even if it isn't the currently accepted name:",
+        "",
+        "Please note, accepted names or unaccepted synonyms for an organism change over time, and the most important part is to be able to match the name you used in your dataset to an identifier.",
+        "For example <Sci Name unaccepted> LSID urn:lsid:marinespecies.org:taxname:<ID for unaccepted name> has the currently accepted name \"<Accepted Name>\" That's fine, as long as we can match the name you used to an identifier for long term reuse. Or you can choose to update your data and metadata to use the currently accepted name.",
+        "",
+        "When evaluating matches, if the category name has \"spp.\" or \"sp.\" still attempt to match it without that abbreviation. The category having \"spp.\" or \"sp.\" is not a reason alone to include it in the second table which lists only names with problems. Only include it there if there is some other issue.",
+        "",
+        "After you give the list, give me a table of just the names that are anything other than \"exact\" match type or other than name status \"accepted\".",
+        "",
+        "Add two columns SciName_WoRMS_accepted and the LSID for the accepted name"
+      ]
+    },
+    {
+      "id": "extract_names",
+      "label": "Extract Names",
+      "icon": "user",
+      "includePublications": false,
+      "fileSelection": "none",
+      "prompt": [
+        "Please extract a table containing all of the person names mentioned in the metadata. The first column should be the name, the second column should be the number of occurrences of that name, and the third column should describe the person's role in the text if it is clear. If it is not clear you can leave the cell empty."
+      ]
+    }
+  ]
+}
