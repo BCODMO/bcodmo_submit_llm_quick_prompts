@@ -68,16 +68,6 @@
       "includeChecklist": false,
       "includeRedmineTicket": false,
       "fileSelection": "none"
-    },
-    {
-      "id": "test",
-      "label": "Test new prompt",
-      "icon": "wand-magic-sparkles",
-      "includePublications": false,
-      "includePeople": false,
-      "includeChecklist": false,
-      "includeRedmineTicket": false,
-      "fileSelection": "none"
     }
   ]
 }
