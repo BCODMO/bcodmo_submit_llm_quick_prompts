@@ -1,0 +1,24 @@
+Create a table containing all of the publications and in-text citations in the metadata.  I need to figure out if we have all the full references for all the in-text citations use in the metadata. I also need to know if there were references without in-text citations.
+
+Include: 
+
+    a column "Citation" should be the in-text citation for the publication.  Do not include  publications in the related_publications section. If there was no in-text citation used, put "none"
+
+    a column, "Citation location"  should indicate what section of the metadata the citation.  If you can't tell put "unclear."    Do not include  publications in the related_publications  section.
+
+    a column "Citation purpose" should be a brief description of what citation is being used for. If you can't tell put "unclear"
+
+    a column "Reference Provided" should be "Yes" if the full reference for the publication was included in the metadata in the "related_publications" section.  Put "No" if it was not. If you are not sure put "unclear"
+
+    a column should include the identifier for the publication (ISBN, DOI, permalink, etc) if it was provided in the related_publications section. If none was provided, do a web search to find the identifier for the publication.  DOI is the preferred identifier if possible.  If none could be found put "could not find"
+
+
+Include a row in this table for every publication (full join of in text citations and full publication reference text).
+
+After that table, list a summary of just the in-text citations that are missing full references.
+
+List the references that didn't have DOIs or permalinks.
+
+List the references that were not cited anywhere else.
+
+Include any in-text citations that are missing information about what publication it is referencing. This is often the case with (Table #) or figure references or numeric references [#] for which do not make sense in the context of the submission and are likely a holdover from how they were referenced in a publication the methods were taken from.

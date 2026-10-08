@@ -1,0 +1,3 @@
+Is the time zone documented in a metadata field? If so, list the field name and the time zone mentioned.
+List any data parameter names (documentation of data column names) that are times, or timestamps.  Indicate if the time zone is documented somewhere.  If so, where is it documented?  It's easier for data managers to understand if you report "parameter_names" json field as "Parameter Information" if that is where it is mentioned.
+Don't consider the `temporal bounds` key or any strings descending from it. Only evaluate the other metadata.

@@ -1,4 +1,4 @@
-name: Validate JSON
+name: Validate
 
 on: [push, pull_request]
 
@@ -7,36 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check quick-prompts.json
-        run: |
-          python3 - <<'PY'
-          import json, re, sys
-          with open("quick-prompts.json") as f:
-              data = json.load(f)
-          prompts = data.get("quickPrompts")
-          if not isinstance(prompts, list) or not prompts:
-              sys.exit("quickPrompts must be a non-empty list")
-          seen = set()
-          for i, p in enumerate(prompts):
-              where = f"quickPrompts[{i}]"
-              for key in ("id", "label", "prompt"):
-                  if key not in p:
-                      sys.exit(f"{where}: missing {key}")
-              if not re.fullmatch(r"[a-z0-9_]+", p["id"]):
-                  sys.exit(f"{where}: id {p['id']!r} must be lowercase letters, numbers and underscores")
-              if p["id"] in seen:
-                  sys.exit(f"{where}: duplicate id {p['id']!r}")
-              seen.add(p["id"])
-              prompt = p["prompt"]
-              if isinstance(prompt, list):
-                  if not all(isinstance(line, str) for line in prompt):
-                      sys.exit(f"{where}: every prompt line must be a string")
-                  prompt = "\n".join(prompt)
-              if not isinstance(prompt, str) or not prompt.strip():
-                  sys.exit(f"{where}: prompt must be a non-empty string or list of strings")
-              if p.get("fileSelection", "none") not in ("none", "parameterFiles", "keep"):
-                  sys.exit(f"{where}: fileSelection must be none, parameterFiles or keep")
-              if "includePublications" in p and not isinstance(p["includePublications"], bool):
-                  sys.exit(f"{where}: includePublications must be true or false")
-          print(f"{len(prompts)} quick prompts OK")
-          PY
+      - name: Check quick-prompts.json and prompts/
+        run: python3 scripts/validate.py

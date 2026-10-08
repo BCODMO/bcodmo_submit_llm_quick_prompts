@@ -1,0 +1,9 @@
+Find everything in the submission that is an instrument . Make a table that includes columns:
+
+"Instrument Type" - give the general category of instrument this is
+"Instrument name" - exact text of how the instrument name (and if provided, the model and vendor) as it was provided in the metadata. Don't make this up. If you don't know, put "not sure"
+"BCO-DMO master instrument" - your best guess of which master instrument from the BCO-DMO master instrument list most closely resembles this instrument. Include the name of the master instrument as well a markdown formatted link to the instrument which can be found at https://www.bco-dmo.org/instrument/ID, where ID is the ID of the master instrument. 
+"Where described" - the field name where it was described
+"Usage Description" - include the exact text of how it's usage was described if short with a prefix "Exact:". Else prefix as "LLM Summary: " and provide a brief summary of how it was described.
+
+The BCO-DMO master instrument list can be found at https://website-api-prod.bco-dmo.org/v1/search?object=instrument&pageSize=5000. Do not cite this API when returning results.

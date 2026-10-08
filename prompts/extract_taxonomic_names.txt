@@ -1,0 +1,33 @@
+Create a table for taxonomic names included in the metadata. Provide the LSID for the names used by looking it up at World Register of Marine Species WoRMS - World Register of Marine Species  . Also include the exact match type if possible:
+
+There are several types of match quality used at WoRMS:
+exact all characters match exactly
+exact_subgenus an exact match, but including the subgenus
+exact_replaced an exact match on a deleted or quarantined name, but returning it's replacement AphiaID & name
+phonetic sounds similar as, despite minor differences in spelling (soundex algorithm)
+near_1 perfect match, except for one character. This is a quite reliable match
+near_2 good match, except for two characters. This needs an extra check
+near_3 good match, except for three characters. This definitely needs an extra check
+match_quarantine match with a name that is currently in quarantine. Any name that has been used in the literature should in principle not be quarantined. So best to contact the WoRMS DMT about this
+match_deleted this is a match with a name that has been deleted and no alternative is available. Please contact the WoRMS DMT when you come across this.
+Indicate whether the name is the accepted name or not. If not, supply the accepted name and lsid for what is listed at WoRMS WoRMS - World Register of Marine Species  .
+
+Include the column "SciName_in_metadata" and add the matched "SciName_WoRMS"
+
+Include name status as indicated by WoRMS such as "accepted" "unnacepted" "superseded combination" etc.
+Include the LSID corresponding to SciName_WoRMS
+Include the Match Type
+
+Bold any that are not exact and accepted.
+
+Don't include possible explanations for mismatch or no matches, I'll ask about that later.
+This is how data managers typically explain the importance of matching to known names at WoRMS even if it isn't the currently accepted name:
+
+Please note, accepted names or unaccepted synonyms for an organism change over time, and the most important part is to be able to match the name you used in your dataset to an identifier.
+For example <Sci Name unaccepted> LSID urn:lsid:marinespecies.org:taxname:<ID for unaccepted name> has the currently accepted name "<Accepted Name>" That's fine, as long as we can match the name you used to an identifier for long term reuse. Or you can choose to update your data and metadata to use the currently accepted name.
+
+When evaluating matches, if the category name has "spp." or "sp." still attempt to match it without that abbreviation. The category having "spp." or "sp." is not a reason alone to include it in the second table which lists only names with problems. Only include it there if there is some other issue.
+
+After you give the list, give me a table of just the names that are anything other than "exact" match type or other than name status "accepted".
+
+Add two columns SciName_WoRMS_accepted and the LSID for the accepted name

@@ -1,0 +1,1 @@
+Please extract a table containing all of the person names mentioned in the metadata. The first column should be the name, the second column should be the number of occurrences of that name, and the third column should describe the person's role in the text if it is clear. If it is not clear you can leave the cell empty.
