@@ -69,7 +69,7 @@
       "includeRedmineTicket": false,
       "fileSelection": "none"
     },
-        {
+    {
       "id": "extract_checklist_from_email",
       "label": "Extract checklist info from email",
       "icon": "user",
