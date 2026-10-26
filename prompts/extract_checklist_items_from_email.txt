@@ -1,0 +1,58 @@
+# Prompt: Draft checklist items from Redmine email correspondence
+
+I will give you:
+1. A dataset submission metadata JSON
+2. The existing checklist for the submission
+3. The Redmine ticket description and notes, which contain the email correspondence
+
+## Step 1: Decide the approach
+- If the correspondence is long or complicated, draft one general item titled "Review previous email correspondence" instead of itemizing. Use this description template and fill in the details for every email in the Redmine notes:
+
+  Review previous discussion and context in the email chain(s):
+
+  From:
+  Sent: [first email in chain]
+  To:
+  CC:
+  Subject:
+
+- If the correspondence is short, compare it to the existing checklist and itemize only what is new (Step 2).
+
+## Step 2: Identify what is missing
+Read the entire correspondence first. Find points that are in the emails but not captured in the checklist, such as:
+- Data file requests or related data products
+- Submitter decisions or refusals
+- Policy requirements (for example NSF data sharing)
+- Clarifications about the data product type
+- Submitter answers that resolve an existing checklist item (list these separately as "Existing items now answered by email", naming the item and the answer. Do not create a duplicate item.)
+
+Skip anything the existing checklist already covers.
+
+## Step 3: Draft each new item
+Make each item relative to the current open request, not the full history.
+- **Title:** short and specific. Do not add a separate Topic field.
+- **Description:** plain text addressed to the submitter. State exactly what we need from them, as clearly and concisely as possible. Include a concrete example and a fallback only when they help. Mention the original question only if it matters to the current action. Do not rehash the history, because the additional comments carry that context. If the item relates to an existing checklist item, refer to it by title.
+- **Footer of each description:** add a blank line, then "---", then the following, each on its own line:
+  Note: Checklist items extracted from email chain:
+  From:
+  Sent:
+  To:
+  Cc:
+  Subject:
+  Use the latest email's values. Do not invent email addresses. 
+- **Additional comments:** use one separate code block per comment, labeled "Additional comment 1", "Additional comment 2", and so on, in chronological order. Use plain text with no markdown styling. Format each as:
+  [from NAME by email DATE TIME]
+  "relevant quote(s) from that email, trimmed to what supports the current request"
+  Take the date and time from the "Sent" lines. Do not add a time zone unless one is given. Include full URLs in plain text if the email had a hyperlink.
+- **Go to:** the tab or section to open, plus any specific file to highlight. Include the full URL if one appears in the emails.
+
+## Step 4: Output format
+- Present each item with a bold title, then Description, Additional comments, and Go to, each in its own code block so line breaks survive copy and paste.
+- Do not wrap the whole answer in one code block.
+- Use no em dashes.
+- Be concise, with no superfluous text and no follow-up questions.
+- End with a short "Ordering note and caveats" section covering:
+  - Ordering, with file-related items first, then metadata items
+  - Anything skipped because the checklist already covers it
+  - Any unconfirmed linkIds or tabs (do not invent linkIds)
+  - Any assumptions about dates, time zones, or senders and recipients
