@@ -68,6 +68,16 @@
       "includeChecklist": false,
       "includeRedmineTicket": false,
       "fileSelection": "none"
+    },
+        {
+      "id": "extract_checklist_from_email",
+      "label": "Extract checklist info from email",
+      "icon": "user",
+      "includePublications": false,
+      "includePeople": false,
+      "includeChecklist": true,
+      "includeRedmineTicket": true,
+      "fileSelection": "none"
     }
   ]
 }
