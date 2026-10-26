@@ -10,10 +10,12 @@ Otherwise, itemize only what is new (step 2).
 Read all correspondence first. Capture points not in the checklist, such as: data file requests or related data products, submitter decisions or refusals, policy requirements (e.g. NSF data sharing), clarifications of data product type. Skip anything already covered. If an email answers an existing item, list it under "Existing items now answered by email" with the item and answer; do not duplicate it.
 
 3. DRAFT EACH ITEM
-Base each item on the current open request, not the full history.
-Title: short and specific. No Topic field.
+Base each item on the current open request, not the full history.  If it's a new item not already in the checklist:
+Title: short and specific. 
 Description: plain text to the submitter stating exactly what we need. Add an example or fallback only if helpful. Mention the original question only if it affects the action. Do not rehash history. Refer to related checklist items by title. End with a blank line, "---", then one per line, using the latest email's values (do not invent addresses):
 Note: Checklist items extracted from email chain each of these as a newline: From: ,Sent: [first email in chain],To:,CC:,Subject:
+
+If it's an existing checklist item put title and say [existing checklist item]
 
 Additional comments: one code block per comment, labeled "Additional comment 1", "Additional comment 2", etc., in chronological order, no markdown:
 [from NAME by email DATE TIME]
