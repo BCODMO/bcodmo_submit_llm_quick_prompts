@@ -70,7 +70,7 @@
       "fileSelection": "none"
     },
     {
-      "id": "extract-checklist-items-from-email",
+      "id": "extract_checklist_items_from_email",
       "label": "Extract checklist info from email",
       "icon": "user",
       "includePublications": false,
